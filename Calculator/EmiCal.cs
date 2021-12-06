@@ -13,12 +13,16 @@ namespace Calculator
 
         {
             decimal emi;
-           r = r / (n * 100); // one month interest
-           t = t * n; // one month period
-            emi =(p * (decimal)Math.Pow(1 +(double)r, (double)t))
+           
+            r = r / (n * 100); // one month interest
+
+            t = t * n; // one month period
+            emi = (p * (decimal)Math.Pow(1 + (double)r, (double)t))
                   / t;
 
             return (emi);
+
+               
+            }
         }
-    }
-}
+    } 
