@@ -15,13 +15,13 @@ namespace Calculator
             decimal principal, rate, time, emi, n;
            
             Console.WriteLine("Enter principal = ");
-            principal = Convert.ToInt32(Console.ReadLine());
+            principal = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine("Enter Rate=");
             rate = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine("Enter Time");
             time = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine("Enter number of compounding per year = ");
-            n = Convert.ToInt32(Console.ReadLine());
+            n = Convert.ToDecimal(Console.ReadLine());
 
 
 
