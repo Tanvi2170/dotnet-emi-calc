@@ -30,7 +30,7 @@
             {
                 var power = request.LoanDurationInYearCount * 365;
                 var rate = request.InterestRateInPercentage / 100;
-                var accumulated = (double)request.Principal * Math.Pow(1 + rate / 365, power);
+                var accumulated = (double)request.Principal * Math.Pow(1 + rate / 365, power)-(double)request.Principal;
                 // convert to response object
                 response.EmiPayment = (decimal)accumulated;
                 return response;
