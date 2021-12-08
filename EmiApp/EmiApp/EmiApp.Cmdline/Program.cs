@@ -12,7 +12,7 @@ namespace EmiApp.Cmdline
             #region monthly compounding
             var emiMonthly = emiCalculator.CalculateMonthlyEmi(emiRequest);
             if (string.IsNullOrEmpty(emiMonthly.ErrorMessage))
-                Console.WriteLine($"Monthly EMI is {emiMonthly.EmiPayment}");
+                Console.WriteLine($"{emiMonthly.EmiPaymentType} EMI is {emiMonthly.EmiPayment}");
             else
                 Console.WriteLine(emiMonthly.ErrorMessage);
             #endregion
@@ -20,14 +20,14 @@ namespace EmiApp.Cmdline
             #region daily compounding
             var emiDaily = emiCalculator.CalculateDailyEmi(emiRequest);
             if (string.IsNullOrEmpty(emiMonthly.ErrorMessage))
-                Console.WriteLine($"Daily EMI is {emiDaily.EmiPayment}");
+                Console.WriteLine($"{emiDaily.EmiPaymentType} EMI is {emiDaily.EmiPayment}");
             else
                 Console.WriteLine(emiDaily.ErrorMessage);
             #endregion
             #region Continous compounding
             var emiContinous = emiCalculator.CalculateContinousEmi(emiRequest);
             if (string.IsNullOrEmpty(emiMonthly.ErrorMessage))
-                Console.WriteLine($"Continous EMI is {emiContinous.EmiPayment}");
+                Console.WriteLine($"{emiContinous.EmiPaymentType} EMI is {emiContinous.EmiPayment}");
             else
                 Console.WriteLine(emiDaily.ErrorMessage);
             #endregion
