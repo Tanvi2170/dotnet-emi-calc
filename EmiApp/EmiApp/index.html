@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- bootstrap css --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>EMI CALCULATOR</title>
+</head>
+<body>
+   
+      <style>
+        input[type=number], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+        </style>
+        <body>
+        
+        <h3> Calculate Monthly Daily and Continous EMI </h3>
+        
+        <div>
+          <form method ="post"   name="myForm">
+            <label for="principal">Principal</label>
+            <input type="number" id="principal" name="principal" placeholder=" Enter principal amount.." step="0.01"><br></br>
+        
+            <label for="InterestRateInPercentage">Rate</label>
+            <input type="number" id="InterestRateInPercentage" name="InterestRateInPercentage" placeholder="Enter rate of Interest.." step="0.01"><br></br>
+            
+            <label for="LoanDurationInYearCount">Time</label>
+            <input type="number" id="LoanDurationInYearCount" name="LoanDurationInYearCount" placeholder="Enter time duration .." step="0.01"><br></br>
+        
+<!--                    
+            <label for="emitype">EmiType</label>
+            <select id="emitype" name="emitype">
+              <option value="Monthly">Monthly</option>
+              <option value="Daily">Daily</option>
+              <option value="Continous">Continous</option>
+            </select> -->
+          
+          
+           <input type="submit" value="submit"> 
+          </form>
+
+          <script>
+            document.forms["myForm"].addEventListener("submit", e => {
+         e.preventDefault();
+         const form = document.forms["myForm"];
+         var api_url = "https://localhost:7029/api/Emi/CalculateMonthlyEmi";
+         const response = fetch(api_url, {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+            principal: form.elements["principal"].value,
+           InterestRateInPercentage: form.elements["InterestRateInPercentage"].value,
+          LoanDurationInYearCount: form.elements["LoanDurationInYearCount"].value
+        })
+    });
+  
+});
+     </script>
+  
+       <script>
+         document.forms["myForm"].addEventListener("submit", e => {
+      e.preventDefault();
+      const form = document.forms["myForm"];
+      var api_url = "https://localhost:7029/api/Emi/CalculateDailyEmi";
+      const response = fetch(api_url, {
+     method: "POST",
+     headers: { "Accept": "application/json", "Content-Type": "application/json" },
+     body: JSON.stringify({
+         principal: form.elements["principal"].value,
+        InterestRateInPercentage: form.elements["InterestRateInPercentage"].value,
+       LoanDurationInYearCount: form.elements["LoanDurationInYearCount"].value
+     })
+ });
+
+});
+  </script>
+    <script>
+      document.forms["myForm"].addEventListener("submit", e => {
+   e.preventDefault();
+   const form = document.forms["myForm"];
+   var api_url = "https://localhost:7029/api/Emi/CalculateContinousEmi";
+   const response = fetch(api_url, {
+  method: "POST",
+  headers: { "Accept": "application/json", "Content-Type": "application/json" },
+  body: JSON.stringify({
+      principal: form.elements["principal"].value,
+     InterestRateInPercentage: form.elements["InterestRateInPercentage"].value,
+    LoanDurationInYearCount: form.elements["LoanDurationInYearCount"].value
+  })
+});
+
+});
+</script>
+    
+        </div>
+</body>
+</html> 
+  
+  
+  
+  
